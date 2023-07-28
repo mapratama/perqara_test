@@ -12,7 +12,7 @@ import com.angga.perqara.data.source.local.entity.TransactionEntity
     version = 5,
     exportSchema = false
 )
-abstract class SehatQDatabase : RoomDatabase() {
+abstract class PerqaraDatabase : RoomDatabase() {
 
     abstract fun productDao(): ProductDao
     abstract fun transactionDao(): TransactionDao

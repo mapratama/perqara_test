@@ -2,12 +2,12 @@ package com.angga.perqara.ui.main
 
 import androidx.lifecycle.*
 import com.angga.perqara.domain.model.Product
-import com.angga.perqara.domain.usecase.SehatQUseCase
+import com.angga.perqara.domain.usecase.PerqaraUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val useCase: SehatQUseCase) : ViewModel() {
+class MainViewModel(private val useCase: PerqaraUseCase) : ViewModel() {
 
     val home = useCase.getHome().asLiveData()
 

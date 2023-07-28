@@ -1,11 +1,11 @@
-package com.angga.perqara.domain.repository
+package com.angga.perqara.domain.usecase
 
 import com.angga.perqara.data.Resource
 import com.angga.perqara.domain.model.Home
 import com.angga.perqara.domain.model.Product
 import kotlinx.coroutines.flow.Flow
 
-interface ISehatQRepository {
+interface PerqaraUseCase {
 
     fun getHome(): Flow<Resource<Home>>
 
@@ -15,5 +15,5 @@ interface ISehatQRepository {
 
     suspend fun searchProduct(keyword: String): Flow<List<Product>>
 
-    fun setFavoriteProduct(product: Product, loved: Int)
+    fun setFavoriteProduct(product: Product, state: Int)
 }

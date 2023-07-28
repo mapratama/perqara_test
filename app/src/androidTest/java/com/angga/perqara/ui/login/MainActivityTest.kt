@@ -35,7 +35,7 @@ class MainActivityTest {
 
         onView(withId(R.id.rv_search)).perform(actionOnItemAtPosition<ViewHolder>(0, click()))
 
-        onView(withId(R.id.btn_buy)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_loved)).check(matches(isDisplayed()))
 
         pressBack()
     }
@@ -48,7 +48,7 @@ class MainActivityTest {
 
         onView(withId(R.id.rv_main)).perform(actionOnItemAtPosition<ViewHolder>(0, click()))
 
-        onView(withId(R.id.btn_buy)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_loved)).check(matches(isDisplayed()))
 
         pressBack()
     }
@@ -61,7 +61,7 @@ class MainActivityTest {
 
         onView(withId(R.id.rv_main)).perform(actionOnItemAtPosition<ViewHolder>(0, click()))
 
-        onView(withId(R.id.btn_buy)).check(matches(isDisplayed())).perform(click())
+        onView(withId(R.id.iv_loved)).check(matches(isDisplayed())).perform(click())
 
         pressBack()
 

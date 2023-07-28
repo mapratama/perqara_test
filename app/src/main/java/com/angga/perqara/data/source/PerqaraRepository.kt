@@ -8,18 +8,18 @@ import com.angga.perqara.data.source.remote.network.ApiResponse
 import com.angga.perqara.data.source.remote.response.ProductListResponse
 import com.angga.perqara.domain.model.Home
 import com.angga.perqara.domain.model.Product
-import com.angga.perqara.domain.repository.ISehatQRepository
+import com.angga.perqara.domain.repository.IPerqaraRepository
 import com.angga.perqara.utils.AppExecutors
 import com.angga.perqara.utils.mapper.ProductMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
-class SehatQRepository(
+class PerqaraRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
-) : ISehatQRepository {
+) : IPerqaraRepository {
 
     override fun getHome(): Flow<Resource<Home>> =
         object : NetworkBoundResource<Home, ProductListResponse>() {

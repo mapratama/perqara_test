@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.angga.perqara.domain.model.Product
-import com.angga.perqara.domain.usecase.SehatQUseCase
+import com.angga.perqara.domain.usecase.PerqaraUseCase
 
-class ProductDetailViewModel(private val useCase: SehatQUseCase) : ViewModel() {
+class ProductDetailViewModel(private val useCase: PerqaraUseCase) : ViewModel() {
 
     private val _product = MutableLiveData<Product>()
     val product: LiveData<Product> = _product

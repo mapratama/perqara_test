@@ -1,15 +1,15 @@
 package com.angga.perqara.di
 
 import androidx.room.Room
-import com.angga.perqara.data.source.SehatQRepository
+import com.angga.perqara.data.source.PerqaraRepository
 import com.angga.perqara.data.source.local.LocalDataSource
-import com.angga.perqara.data.source.local.room.SehatQDatabase
+import com.angga.perqara.data.source.local.room.PerqaraDatabase
 import com.angga.perqara.data.source.remote.RemoteDataSource
 import com.angga.perqara.data.source.remote.network.ApiService
 import com.angga.perqara.data.source.remote.network.HeaderInterceptor
-import com.angga.perqara.domain.repository.ISehatQRepository
-import com.angga.perqara.domain.usecase.SehatQInteractor
-import com.angga.perqara.domain.usecase.SehatQUseCase
+import com.angga.perqara.domain.repository.IPerqaraRepository
+import com.angga.perqara.domain.usecase.PerqaraInteractor
+import com.angga.perqara.domain.usecase.PerqaraUseCase
 import com.angga.perqara.ui.detail.ProductDetailViewModel
 import com.angga.perqara.ui.history.PurchasedHistoryViewModel
 import com.angga.perqara.ui.main.MainViewModel
@@ -25,12 +25,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val databaseModule = module {
-    factory { get<SehatQDatabase>().productDao() }
-    factory { get<SehatQDatabase>().transactionDao() }
+    factory { get<PerqaraDatabase>().productDao() }
+    factory { get<PerqaraDatabase>().transactionDao() }
     single {
         Room.databaseBuilder(
             androidContext(),
-            SehatQDatabase::class.java, "SehatQ.db"
+            PerqaraDatabase::class.java, "SehatQ.db"
         ).fallbackToDestructiveMigration().build()
     }
 }
@@ -58,11 +58,11 @@ val repositoryModule = module {
     single { LocalDataSource(get(), get()) }
     single { RemoteDataSource(get()) }
     factory { AppExecutors() }
-    single<ISehatQRepository> { SehatQRepository(get(), get(), get()) }
+    single<IPerqaraRepository> { PerqaraRepository(get(), get(), get()) }
 }
 
 val useCaseModule = module {
-    factory<SehatQUseCase> { SehatQInteractor(get()) }
+    factory<PerqaraUseCase> { PerqaraInteractor(get()) }
 }
 
 val viewModelModule = module {

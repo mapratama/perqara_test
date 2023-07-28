@@ -5,12 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.angga.perqara.domain.model.Product
-import com.angga.perqara.domain.usecase.SehatQUseCase
+import com.angga.perqara.domain.usecase.PerqaraUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 
-class SearchViewModel(private val useCase: SehatQUseCase) : ViewModel() {
+class SearchViewModel(private val useCase: PerqaraUseCase) : ViewModel() {
 
     private val _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>> get() = _products
