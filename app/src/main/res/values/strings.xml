@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Perqara Test</string>
+    <string name="label_search">Cari…</string>
+    <string name="description_back_button">Back button product detail</string>
+    <string name="description_share_button">Share button</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="label_buy">Buy</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="label_no_data">No data</string>
+    <string name="label_unexpected_error">Unexpected error</string>
+</resources>
