@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 data class ProductEntity(
     @PrimaryKey
     val id: String,
-    val description: String,
+    val title: String,
     val imageUrl: String,
-    var loved: Int,
-    val price: String,
-    val title: String
+    val rating: Float,
+    val releaseDate: String,
+    val playtime: Int
 )

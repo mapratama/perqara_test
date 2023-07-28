@@ -1,6 +1,6 @@
 package com.angga.perqara.data.source.remote.network
 
-import com.angga.perqara.data.source.remote.response.Home2Response
+import com.angga.perqara.data.source.remote.response.ProductListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,6 +12,5 @@ interface ApiService {
     suspend fun getHome(@Query("key") key: String = KEY,
                         @Query("page") page: Int = 1,
                         @Query("page_siza") pageSize: Int = 10)
-    : Response<Home2Response>
-
+    : Response<ProductListResponse>
 }

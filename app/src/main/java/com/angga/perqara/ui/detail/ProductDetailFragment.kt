@@ -38,24 +38,15 @@ class ProductDetailFragment : BaseFragment<ProductDetailFragmentBinding>(), View
         })
     }
 
-    private fun populateDataProduct(item: Product) {
-        binding.ivGameImage.load(item.imageUrl)
-        binding.tvGameCategory.text = "Rockstar Games"
-        binding.tvGameTitle.text = item.title
-        binding.tvGameReleaseDate.text = "Release Date 10-09-2020"
-        binding.tvGameRating.text = "4.5"
-        binding.tvGamePlayed.text = "230 played"
-        binding.tvGameDescription.text = "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
+    private fun populateDataProduct(product: Product) {
+        binding.ivGameImage.load(product.imageUrl)
+        binding.tvGameTitle.text = product.title
+        binding.tvGameReleaseDate.text = resources.getString(R.string.label_release_date, product.releaseDate)
+        binding.tvGameRating.text = product.rating.toString()
+        binding.tvGamePlayed.text = "${product.playtime} played"
 
-
-        if (item.loved == 1)
-            binding.tvGameRating.text = "LOVED"
-        else
-            binding.tvGameRating.text = "NO LOVED"
 //        val status = item.loved == 1
 //        setStatusFavorite(status)
-
-
     }
 
     private fun initViews() {

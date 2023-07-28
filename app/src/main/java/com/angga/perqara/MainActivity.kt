@@ -25,8 +25,8 @@ class MainActivity : BaseActivity<MainActivityBinding>() {
             binding.bottomNav,
             navController
         )
-        setupActionBarWithNavController(navController)
 
+        setupActionBarWithNavController(navController)
         supportActionBar?.hide()
 
         navController.addOnDestinationChangedListener { _, destination, _ ->

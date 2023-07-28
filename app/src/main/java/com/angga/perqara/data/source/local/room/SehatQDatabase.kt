@@ -9,7 +9,7 @@ import com.angga.perqara.data.source.local.entity.TransactionEntity
 
 @Database(
     entities = [ProductEntity::class, TransactionEntity::class],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 abstract class SehatQDatabase : RoomDatabase() {

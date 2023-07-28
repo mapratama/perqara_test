@@ -2,8 +2,7 @@ package com.angga.perqara.data.source.remote
 
 import com.angga.perqara.data.source.remote.network.ApiResponse
 import com.angga.perqara.data.source.remote.network.ApiService
-import com.angga.perqara.data.source.remote.response.HomeResponse
-import com.angga.perqara.domain.model.DataResult
+import com.angga.perqara.data.source.remote.response.ProductListResponse
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.stub
@@ -22,10 +21,8 @@ class RemoteDataSourceTest {
     fun `flow emits successfully`() = runBlocking {
 
         // Mock API Service
-        val homeResponse = HomeResponse(
-            category = CategoryData.categories, productPromo = ProductData.products
-        )
-        val response: Response<List<DataResult<HomeResponse>>> = Response.success(listOf(DataResult(homeResponse)))
+        val productListResponse = ProductListResponse(ProductData.products)
+        val response: Response<ProductListResponse> = Response.success(productListResponse)
         apiService.stub {
             onBlocking { getHome() } doReturn response
         }
@@ -36,7 +33,7 @@ class RemoteDataSourceTest {
         flow.collect { result ->
             when (result) {
                 is ApiResponse.Success -> {
-                    result.data shouldBeEqualTo homeResponse
+                    result.data shouldBeEqualTo productListResponse
                 }
             }
         }

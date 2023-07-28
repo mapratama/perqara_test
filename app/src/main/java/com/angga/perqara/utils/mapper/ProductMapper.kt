@@ -10,12 +10,12 @@ object ProductMapper {
         val productList = ArrayList<ProductEntity>()
         input.map {
             val product = ProductEntity(
-                id = it.id,
-                title = it.title,
-                description = it.description,
+                id = it.slug,
+                title = it.name,
                 imageUrl = it.imageUrl,
-                loved = it.loved,
-                price = it.price
+                releaseDate = it.released,
+                rating = it.rating,
+                playtime = it.playtime
             )
             productList.add(product)
         }
@@ -27,20 +27,10 @@ object ProductMapper {
             Product(
                 id = it.id,
                 title = it.title,
-                description = it.description,
                 imageUrl = it.imageUrl,
-                loved = it.loved,
-                price = it.price
+                releaseDate = it.releaseDate,
+                rating = it.rating,
+                playtime = it.playtime
             )
         }
-
-    fun mapDomainToEntity(input: Product) = ProductEntity(
-        id = input.id,
-        title = input.title,
-        description = input.description,
-        imageUrl = input.imageUrl,
-        loved = input.loved,
-        price = input.price
-    )
-
 }

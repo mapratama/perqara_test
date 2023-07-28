@@ -36,17 +36,3 @@ fun FragmentActivity.showMessage(
         action.invoke()
     }.show()
 }
-
-fun Activity.share(name: String, price: String) {
-    val share = Intent.createChooser(
-        Intent().apply {
-            action = Intent.ACTION_SEND
-            val content = "Product name: $name with price: $price"
-            putExtra(Intent.EXTRA_TEXT, content)
-            type = "text/plain"
-            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-        },
-        "Bagikan ke"
-    )
-    this.startActivity(share)
-}
